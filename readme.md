@@ -27,3 +27,18 @@ jest -i
 ### Part 3: Fix routes files
 
 
+
+
+
+
+
+
+
+
+
+```bash
+lsof -i :3000
+kill -9 <PID>
+```
+
+
