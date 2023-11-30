@@ -6,6 +6,7 @@
 
 ```bash
 npm install
+bpm install bcrypt
 createdb messagely
 createdb messagely_test
 
@@ -23,6 +24,8 @@ Familiarize
 psql messagely < data.sql
 jest -i
 ```
+TEST
+
 
 ### Part 3: Fix routes files
 
@@ -39,6 +42,10 @@ jest -i
 ```bash
 lsof -i :3000
 kill -9 <PID>
+
+nodemon app.js
+nodemon npm start
+nodemon -e js,html,css
 ```
 
 
