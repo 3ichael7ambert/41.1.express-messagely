@@ -6,7 +6,7 @@
 
 ```bash
 npm install
-bpm install bcrypt
+npm install bcrypt
 createdb messagely
 createdb messagely_test
 
@@ -37,7 +37,12 @@ TEST
 
 
 
+### Other
 
+#### JWT
+```bash
+npm install jsonwebtoken
+```
 
 ```bash
 lsof -i :3000
