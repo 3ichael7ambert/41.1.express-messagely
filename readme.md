@@ -53,4 +53,11 @@ nodemon npm start
 nodemon -e js,html,css
 ```
 
+localhost:3000/
+localhost:3000/login/
 
+localhost:3000/reg
+
+localhost:3000/users
+
+localhost:3000/messages

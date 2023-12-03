@@ -4,16 +4,23 @@ const jwt = require("jsonwebtoken");
 const { SECRET_KEY } = require("../config");
 
 /** Middleware: Authenticate user. */
-
 function authenticateJWT(req, res, next) {
   try {
     const tokenFromBody = req.body._token;
+    
+    console.log("Request Body:", req.body);
+    console.log("Extracted Token:", tokenFromBody);
+
+    if (!tokenFromBody) {
+      return next({ status: 401, message: "Unauthorized - No token provided" });
+    }
+
     const payload = jwt.verify(tokenFromBody, SECRET_KEY);
     req.user = payload; // create a current user
-    console.log("YOU HAVE A VALID TOKEN!")
+    console.log("YOU HAVE A VALID TOKEN!");
     return next();
   } catch (err) {
-    return next();
+    return next({ status: 401, message: "Unauthorized - Invalid token" });
   }
 }
 

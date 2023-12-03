@@ -2,7 +2,7 @@ const Router = require("express").Router;
 const router = new Router();
 
 const Message = require("../models/message");
-const {ensureLoggedIn} = require("../middleware/auth");
+const {authenticateJWT, ensureLoggedIn} = require("../middleware/auth");
 const ExpressError = require("../expressError");
 
 /** get detail of message.
@@ -18,7 +18,7 @@ const ExpressError = require("../expressError");
  *
  **/
 
-router.get("/:id", ensureLoggedIn, async function (req, res, next) {
+router.get("/:id", authenticateJWT, ensureLoggedIn, async function (req, res, next) {
   try {
     let username = req.user.username;
     let msg = await Message.get(req.params.id);
@@ -45,7 +45,7 @@ router.get("/:id", ensureLoggedIn, async function (req, res, next) {
  *
  **/
 
-router.post("/", ensureLoggedIn, async function (req, res, next) {
+router.post("/", authenticateJWT, ensureLoggedIn, async function (req, res, next) {
   try {
     let msg = await Message.create({
       from_username: req.user.username,
@@ -70,7 +70,7 @@ router.post("/", ensureLoggedIn, async function (req, res, next) {
  *
  **/
 
-router.post("/:id/read", ensureLoggedIn, async function (req, res, next) {
+router.post("/:id/read", authenticateJWT, ensureLoggedIn, async function (req, res, next) {
   try {
     let username = req.user.username;
     let msg = await Message.get(req.params.id);
