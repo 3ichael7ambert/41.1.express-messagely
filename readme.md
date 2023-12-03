@@ -54,10 +54,14 @@ nodemon -e js,html,css
 ```
 
 localhost:3000/
-localhost:3000/login/
+localhost:3000/auth/login/
 
-localhost:3000/reg
+localhost:3000/auth/register
 
 localhost:3000/users
 
 localhost:3000/messages
+
+
+{"username": "mew", "password": "hello", "first_name": "joe", "last_name": "schmoe", "phone": "8675309"}
+

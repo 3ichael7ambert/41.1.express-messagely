@@ -4,8 +4,6 @@
 const express = require("express");
 const cors = require("cors");
 const { authenticateJWT } = require("./middleware/auth");
-const bcrypt = require('bcrypt');
-//const server = require('server');
 
 const ExpressError = require("./expressError")
 const app = express();
@@ -51,8 +49,3 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
-
-
-app.listen(3000, function () {
-  console.log("Listening on 3000");
-});

@@ -6,6 +6,9 @@ const { SECRET_KEY } = require("../config");
 /** Middleware: Authenticate user. */
 function authenticateJWT(req, res, next) {
   try {
+    if (req.path === "/auth/login" || req.path === "/auth/register") {
+      return next();
+    }
     const tokenFromBody = req.body._token;
     
     console.log("Request Body:", req.body);
